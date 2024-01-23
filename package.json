@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sassy": "sass --no-source-map --watch static/src/main.sass static/src/main.css"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "express-handlebars": "^7.1.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.0.3",
+    "sass": "^1.70.0"
   }
 }

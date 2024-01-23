@@ -14,11 +14,11 @@ const MENU = [
   },
   {
     label: 'About us',
-    link: '/about',
+    link: '/filmer',
   },
   {
     label: 'Contact us',
-    link: '/contact',
+    link: '/evenemang',
   },
 ];
 
@@ -30,8 +30,20 @@ response.render(page)
 app.get('/', async (request, response) => {
   renderPage(response, 'index');
 });
+app.get('/filmer', async (request, response) => {
+  renderPage(response, 'filmer');
+});
+app.get('/evenemang', async (request, response) => {
+  renderPage(response, 'evenemang');
+});
+
+
+
+
 
 // Routing for other requests
 app.use('/', express.static('./static'));
+
+
 
 app.listen(5080);
