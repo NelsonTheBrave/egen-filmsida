@@ -9,21 +9,28 @@ app.set('views', './templates');
 
 const MENU = [
   {
-    label: 'Homepage',
+    label: 'Startsida',
     link: '/',
   },
   {
-    label: 'About us',
+    label: 'Filmer',
     link: '/filmer',
   },
   {
-    label: 'Contact us',
+    label: 'Evenemang',
     link: '/evenemang',
   },
 ];
 
 async function renderPage(response, page) {
-response.render(page)
+  response.render(page, { menu: MENU.map(item => {
+    const currentPath = (page == 'index') ? '/' : `/${page}`;
+    return {
+        label: item.label,
+        link: item.link,
+        status: (currentPath == item.link) ? 'active' : 'inactive'
+    }
+  }) });
 }
 
 // Create routing for index (./) requests
@@ -37,13 +44,7 @@ app.get('/evenemang', async (request, response) => {
   renderPage(response, 'evenemang');
 });
 
-
-
-
-
 // Routing for other requests
 app.use('/', express.static('./static'));
-
-
 
 app.listen(5080);

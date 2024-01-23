@@ -2,7 +2,7 @@ header
     background-image: url('/assets/wood.jpg')
     padding: 1em
     height: 200px
-    a
+    .logo
         position: absolute
         top: -5    
         left: -5
@@ -20,5 +20,9 @@ header
             font-size: 3em
             font-family: sans-serif
             font-weight: bold
-            color: #f1af8a    
+            a
+                color: #f1af8a    
+                &.active
+                    color: black
+
             

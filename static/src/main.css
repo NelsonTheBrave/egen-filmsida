@@ -11,7 +11,7 @@ header {
   padding: 1em;
   height: 200px;
 }
-header a {
+header .logo {
   position: absolute;
   top: -5;
   left: -5;
@@ -31,7 +31,12 @@ header ul li {
   font-size: 3em;
   font-family: sans-serif;
   font-weight: bold;
+}
+header ul li a {
   color: #f1af8a;
+}
+header ul li a.active {
+  color: black;
 }
 
 footer {
