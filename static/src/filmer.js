@@ -15,4 +15,3 @@ export async function fetchMovie(id) {
     const payload = await res.json();
     return payload.data;
   }
-
