@@ -1,1 +1,10 @@
-<h1>FILMER</h1>
+<div class='filmer'><h1>Aktuella filmer att se i vår träbiograf</h1>
+
+  <ul>
+    {{#each movies}}
+      <li>
+        <a href='/filmer/{{this.id}}'>{{this.attributes.title}}</a>
+      </li>
+    {{/each}}
+  </ul>
+</div>

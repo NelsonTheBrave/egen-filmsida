@@ -4,11 +4,11 @@ header
     height: 200px
     .logo
         position: absolute
-        top: -5    
+        top: 0
         left: -5
         display: block
         height: 15em
-        width: 15em 
+        width: 15em
         background-image: url('/assets/logga.png')
         background-size: contain
     ul
@@ -18,11 +18,13 @@ header
         margin-left: 8em
         li
             font-size: 3em
-            font-family: sans-serif
             font-weight: bold
-            a
-                color: #f1af8a    
-                &.active
-                    color: black
+            transition: all 100ms
+            &:hover
+                transform: scale(1.05)
 
-            
+            a
+                color: #f1af8a
+                &.active
+                    color: #f1af8a
+                    outline: 3px dotted gold
