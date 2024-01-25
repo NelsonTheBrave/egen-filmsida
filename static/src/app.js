@@ -11,19 +11,24 @@ app.set('views', './templates');
 app.use('/', express.static('./static'));
 app.use('/filmer', express.static('./static')); //Onödigt med två routes?
 
-app.get('/', async (req, response) => {
-    renderPage(response, 'index');
-  });
-  app.get('/filmer', async (req, response) => {
-    const movieList = await fetchMovies();
-    renderPage(response, 'filmer', movieList);
-  });
-  app.get('/filmer/:movieId', async (req, response) => {
-    const movie = await fetchMovie(req.params.movieId);
-    renderPage(response, 'film', null, movie);
-  });
-  app.get('/evenemang', async (req, response) => {
-    renderPage(response, 'evenemang');
-  });
+app.get('/', async (req, res) => {
+  renderPage(res, 'index');
+});
+
+app.get('/filmer', async (req, res) => {
+  const movieList = await fetchMovies();
+  renderPage(res, 'filmer', movieList);
+});
+
+app.get('/filmer/:movieId', async (req, res) => {
+  const movie = await fetchMovie(req.params.movieId);
+  const page = movie ? 'film' : 'error';
+  console.log(movie);
+  renderPage(res, page, null, movie);
+});
+
+app.get('/evenemang', async (req, res) => {
+  renderPage(res, 'evenemang');
+});
 
 export default app;
