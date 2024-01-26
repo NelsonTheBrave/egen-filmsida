@@ -9,7 +9,7 @@ app.set('view engine', 'handlebars');
 app.set('views', './templates');
 
 app.use('/', express.static('./static'));
-app.use('/filmer', express.static('./static')); //Onödigt med två routes?
+// app.use('/filmer', express.static('./static')); //Onödigt med två routes?
 
 app.get('/', async (req, res) => {
   renderPage(res, 'index');
@@ -23,7 +23,6 @@ app.get('/filmer', async (req, res) => {
 app.get('/filmer/:movieId', async (req, res) => {
   const movie = await fetchMovie(req.params.movieId);
   const page = movie ? 'film' : 'error';
-  console.log(movie);
   renderPage(res, page, null, movie);
 });
 

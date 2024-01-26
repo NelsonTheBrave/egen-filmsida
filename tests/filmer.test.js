@@ -19,3 +19,8 @@ test('Film-pages show the right movies', async () => {
   response = await request(app).get('/filmer/8').expect(200);
   expect(response.text).toMatch('Pulp Fiction');
 });
+
+test('Error handling for HTTP request of non existing movie Id', async () => {
+  const response = await request(app).get('/filmer/12').expect(404);
+  expect(response.text).toMatch('404');
+});
