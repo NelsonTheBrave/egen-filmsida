@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon",
+    "build-css": "tailwind build -i static/src/preTailwind.css -o static/src/postTailwind.css --watch",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "sassy": "sass --no-source-map --watch static/src/main.sass static/src/main.css",
     "start": "node index.js"
@@ -22,6 +23,8 @@
     "node-fetch": "^3.3.2",
     "nodemon": "^3.0.3",
     "sass": "^1.70.0",
-    "supertest": "^6.3.4"
+    "supertest": "^6.3.4",
+    "tailwindcss": "^3.4.1",
+    "watch": "^1.0.2"
   }
 }

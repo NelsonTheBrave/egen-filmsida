@@ -2,6 +2,7 @@ import express from 'express';
 import expressHandlebars from 'express-handlebars';
 import { fetchMovie, fetchMovies } from './filmer.js';
 import { renderPage } from './render.js';
+import fs from 'fs/promises';
 
 const app = express();
 app.engine('handlebars', expressHandlebars.engine());
@@ -28,6 +29,16 @@ app.get('/filmer/:movieId', async (req, res) => {
 
 app.get('/evenemang', async (req, res) => {
   renderPage(res, 'evenemang');
+});
+
+// app.get('/loggain', async (req, res) => {
+//   res.render();
+// });
+
+app.get('/loggain', async (request, response) => {
+  const buf = await fs.readFile('./static/src/loggain.html');
+  const html = buf.toString();
+  response.send(html);
 });
 
 export default app;
