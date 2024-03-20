@@ -32,9 +32,9 @@
 
       <div class="main bg-[url('/assets/wood2.jpg')] min-h-screen py-20">
         <div class="container mx-auto">
-          <h1 class="text-7xl text-center">Inloggningssida</h1>
+          <h1 class="text-7xl text-center">Registrera ny användare</h1>
           <form
-            action="/loggain"
+            action="/registrera"
             method="get"
             class="w-4/12 m-auto py-4 border border-amber-900 my-20 min-w-96 rounded-lg bg-[url('/assets/wood2.jpg')]"
           >
@@ -47,38 +47,64 @@
               type="text"
               id="username"
               name="username"
-              placeholder="Ange ditt användarnamn"
+              placeholder="Välj ditt användarnamn"
               class="block w-10/12 mb-6 ml-6 px-4 py-2 border -gray-300 rounded-md focus:outline-none focus-green-400"
               required
             />
-
+            <label
+              for="email"
+              class="block ml-6 mt-4 mb-2 text-lef t text-gray-700 font-bold"
+              >E-post</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Ange e-postadress"
+              class="block w-10/12 mb-6 ml-6 px-4 py-2 border -gray-300 rounded-md focus:outline-none focus:border-green-400"
+              required
+            />
+            <label
+              for="fullName"
+              class="block ml-6 mt-4 mb-2 text-lef t text-gray-700 font-bold"
+              >Fullständigt namn</label
+            >
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="Ange ditt fullständiga för- och efternamn"
+              class="block w-10/12 mb-6 ml-6 px-4 py-2 border -gray-300 rounded-md focus:outline-none focus:border-green-400"
+              required
+            />
             <label
               for="password"
-              class="block ml-6 mt-4 mb-2 text-lef t text-gray-700 font-bold"
+              class="inline ml-6 mt-4 mb-2 text-left text-gray-700 font-bold"
               >Lösenord</label
+            >
+            <span
+              class="inline text-sm ml-6 mt-4 mb-2 text-left text-gray-300 font-bold"
+              >(lösenordsstyrka:
+              <i class="password-strength-indicator text-white">låg</i>)</span
             >
             <input
               type="password"
               id="password"
               name="password"
-              placeholder="Ange ditt lösenord"
-              class="block w-10/12 mb-6 ml-6 px-4 py-2 border -gray-300 rounded-md focus:outline-none focus:border-green-400"
+              placeholder="Välj ett starkt lösenord!"
+              class="block w-10/12 mt-6 mb-3 ml-6 px-4 py-2 border -gray-300 rounded-md focus:outline-none focus:border-green-400"
               required
             />
+            <p class="text-sm mx-6">
+              Ett starkt lösenord har minst 8 tecken och inkluderar minst en
+              siffra
+            </p>
             <button
               type="submit"
               class="bg-amber-600 ml-6 mt-4 text-white py-3 px-6 rounded-md cursor-pointer transition-colors duration-300 hover:bg-amber-700"
             >
-              Logga in
+              Skapa användare
             </button>
-            <p class="ml-6 mt-4">
-              Ingen användare ännu?
-              <a
-                href="/registrera"
-                class="text-amber-100 font-bold hover:underline"
-                >Skapa en användare här!</a
-              >
-            </p>
           </form>
         </div>
       </div>
@@ -89,5 +115,6 @@
         </p>
       </footer>
     </div>
+    <script src="/src/registrera.js"></script>
   </body>
 </html>

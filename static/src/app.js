@@ -31,12 +31,14 @@ app.get('/evenemang', async (req, res) => {
   renderPage(res, 'evenemang');
 });
 
-// app.get('/loggain', async (req, res) => {
-//   res.render();
-// });
-
 app.get('/loggain', async (request, response) => {
   const buf = await fs.readFile('./static/src/loggain.html');
+  const html = buf.toString();
+  response.send(html);
+});
+
+app.get('/registrera', async (request, response) => {
+  const buf = await fs.readFile('./static/src/registrera.html');
   const html = buf.toString();
   response.send(html);
 });
